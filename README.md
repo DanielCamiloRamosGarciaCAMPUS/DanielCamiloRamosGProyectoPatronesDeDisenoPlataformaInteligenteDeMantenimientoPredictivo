@@ -1,10 +1,5 @@
 <h1 align="center">⚙️ Plataforma Inteligente de Mantenimiento Predictivo</h1>
 
-<p align="center">
-Sistema backend orientado al monitoreo de sensores industriales y análisis predictivo de fallas.
-</p>
-
-<hr>
 
 <h2>📌 Descripción</h2>
 
