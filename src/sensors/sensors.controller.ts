@@ -37,4 +37,23 @@ return this.sensorsService.construirMaquina();
 
 }
 
+// ENDPOINT PROTOTYPE
+@Post("clonar-configuracion")
+clonarConfiguracion(@Body() body: any) {
+
+  return this.sensorsService.clonarConfiguracion(body);
+
 }
+
+// ENDPOINT ADAPTER
+@Post("adaptado")
+leerAdaptado() {
+
+  return this.sensorsService.leerSensorAdaptado();
+
+}
+
+
+}
+
+
