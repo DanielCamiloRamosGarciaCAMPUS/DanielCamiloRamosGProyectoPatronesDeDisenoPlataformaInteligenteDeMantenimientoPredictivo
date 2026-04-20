@@ -53,6 +53,22 @@ leerAdaptado() {
 
 }
 
+// ENDPOINT BRIDGE
+@Post("alerta-bridge")
+procesarAlerta(@Body() body: any) {
+
+  return this.sensorsService.procesarAlertaBridge(body.tipoAlerta, body.canal);
+
+}
+
+// ENDPOINT DECORATOR
+@Post("lectura-decorada")
+procesarLecturaDecorada() {
+
+  return this.sensorsService.procesarLecturaDecorada();
+
+}
+
 
 }
 
