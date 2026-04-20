@@ -69,6 +69,21 @@ procesarLecturaDecorada() {
 
 }
 
+// ENDPOINT COMPOSITE
+@Post("composite")
+mostrarComposite() {
+
+  return this.sensorsService.mostrarEstructuraActivos();
+
+}
+
+// ENDPOINT FACADE
+@Post("facade")
+ejecutarFacade() {
+
+  return this.sensorsService.ejecutarFacade();
+
+}
 
 }
 

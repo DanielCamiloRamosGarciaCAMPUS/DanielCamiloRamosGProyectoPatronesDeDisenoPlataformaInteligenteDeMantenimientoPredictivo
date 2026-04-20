@@ -21,6 +21,9 @@ import { AlertaPreventiva } from '../alerts/bridge/alerta-preventiva';
 import { LecturaBaseSensor } from './decorator/lectura-base-sensor';
 import { LogDecorator } from './decorator/log.decorator';
 import { ValidacionDecorator } from './decorator/validacion.decorator';
+import { ActivoIndividual } from '../assets/composite/activo-individual';
+import { GrupoActivos } from '../assets/composite/grupo-activos';
+import { MonitoreoFacade } from '../monitoring/facade/monitoreo.facade';
 
 @Injectable()
 export class SensorsService {
@@ -157,6 +160,30 @@ procesarLecturaDecorada() {
   return lectura.procesar();
 }
 
+//PATRON COMPOSITE
+
+mostrarEstructuraActivos() {
+  const activo1 = new ActivoIndividual('Motor Principal');
+  const activo2 = new ActivoIndividual('Bomba Hidráulica');
+  const activo3 = new ActivoIndividual('Compresor Secundario');
+
+  const grupoProduccion = new GrupoActivos('Línea de Producción');
+  grupoProduccion.agregar(activo1);
+  grupoProduccion.agregar(activo2);
+
+  const planta = new GrupoActivos('Planta Industrial');
+  planta.agregar(grupoProduccion);
+  planta.agregar(activo3);
+
+  return planta.mostrarEstado();
+}
+
+//PATRON FACADE
+ejecutarFacade() {
+  const facade = new MonitoreoFacade();
+
+  return facade.ejecutarMonitoreo();
+}
 
 
 }
